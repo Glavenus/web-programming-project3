@@ -1,3 +1,8 @@
+.body{
+    font-family: sans-serif;
+    
+}
+
 #w3c {
 	float: right;
 }
@@ -9,4 +14,26 @@
 #centerButton{
     margin: 0 auto;
     display: block;
+}
+
+.gamePiece{
+    height: 96px;
+    width: 96px;
+    border: 2px;
+    border-style: solid black;
+    font-size: 32pt;
+    text-align: center;
+}
+
+.moveablepiece:hover{
+   border-color: red; 
+   color: #006600;
+   cursor: pointer;
+}
+
+#gameSpace{
+    margin-right: auto;
+    margin-left: auto;
+    height: 400px;
+    width: 400px;
 }
