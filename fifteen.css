@@ -1,0 +1,12 @@
+#w3c {
+	float: right;
+}
+
+#center{
+    text-align: center;
+}
+
+#centerButton{
+    margin: 0 auto;
+    display: block;
+}
