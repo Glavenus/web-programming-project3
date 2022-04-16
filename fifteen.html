@@ -5,24 +5,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="fifteen.css">
+    <link rel="stylesheet" href="./fifteen.css">
+    <script src="./fifteen.js" type="text/javascript"></script>
     <title>Fifteen Puzzle</title>
 </head>
 
 <body>
-    <h1 id="center">Fifteen Puzzle</h1>
-    <p id="center">The goal of the fifteen puzzle is to un-jumble its fifteen suqares by repeatedly making moves that slide squares into the empty space. How quickly can you solve it?</p>
+    <h1 class="center">Fifteen Puzzle</h1>
+    <p class="center">The goal of the fifteen puzzle is to un-jumble its fifteen squares by repeatedly making moves that slide squares into the empty space. How quickly can you solve it?</p>
     <br>
-    
-    <div id="gameSpace">       
-        <div>1</div>  <div>2</div>  <div>3</div>  <div>4</div>
-        <div>5</div>  <div>6</div>  <div>7</div>  <div>8</div>
-        <div>9</div>  <div>10</div> <div>11</div> <div>12</div>
-        <div>13</div> <div>14</div> <div>15</div>
+    <div id="container">
+        <div id="gameSpace">
+            <div>1</div>  
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+            <div>7</div>
+            <div>8</div>
+            <div>9</div>
+            <div>10</div>
+            <div>11</div>
+            <div>12</div>
+            <div>13</div>
+            <div>14</div>
+            <div>15</div>
+        </div>
+        <div id="controls">
+			<button id="shufflebutton">Shuffle</button>
+        </div>
     </div>
 
     <br>
-    <p id="center">American puzzle author and mathematician Sam Loyd is often falsely credited with creating the puzzle; indeed, 
+    <p class="center">American puzzle author and mathematician Sam Loyd is often falsely credited with creating the puzzle; indeed, 
         Loyd claimed from 1891 until his death in 1911 that he invented it. The puzzle was actually created around 1874 by Noyes Palmer Chapman, a postmaster in Canastota, New York.
     </p>
 
@@ -33,5 +49,4 @@
     </div>
 
 </body>
-
 </html>

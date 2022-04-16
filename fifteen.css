@@ -7,21 +7,34 @@
 	float: right;
 }
 
-#center{
+.center{
     text-align: center;
 }
 
-#centerButton{
-    margin: 0 auto;
-    display: block;
+#container {
+    margin: 0 auto 0 auto;
+}
+
+#controls,
+#container,
+#gameSpace {
+	width: 400px;
+}
+
+#controls {
+	padding-top: 10px;
+	text-align: center;
 }
 
 .gamePiece{
+    background-image: url("./racoon-mario.png");
     height: 96px;
     width: 96px;
-    border: 2px;
-    border-style: solid black;
+    border: 2px solid black;
     font-size: 32pt;
+    position: absolute;
+	text-align: center;
+	vertical-align: middle;
     text-align: center;
 }
 
@@ -32,8 +45,9 @@
 }
 
 #gameSpace{
-    margin-right: auto;
-    margin-left: auto;
+    position: relative;
+    font-size: 32px;
+    padding: 0px;
     height: 400px;
     width: 400px;
 }
