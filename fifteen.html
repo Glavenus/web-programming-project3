@@ -15,6 +15,12 @@
     <p class="center">The goal of the fifteen puzzle is to un-jumble its fifteen squares by repeatedly making moves that slide squares into the empty space. How quickly can you solve it?</p>
     <br>
     <div id="container">
+        <div id="options">
+            <h2>Choose Background</h2>
+            <button class="opt-btn" onclick="changePic(this)" id="mario">Mario</button>
+            <button class="opt-btn" onclick="changePic(this)" id="yoshi">Yoshi</button>
+            <button class="opt-btn" onclick="changePic(this)" id="wario">Wario</button>
+        </div>
         <div id="gameSpace">
             <div>1</div>  
             <div>2</div>
@@ -33,7 +39,12 @@
             <div>15</div>
         </div>
         <div id="controls">
+            <p id="timer"></p>
 			<button id="shufflebutton">Shuffle</button>
+            <br>
+            <audio controls>
+                <source src="" type="">
+            </audio>
         </div>
     </div>
 

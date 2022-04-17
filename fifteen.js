@@ -10,6 +10,7 @@ var notify;
 var timer;
 var spaceY;
 var spaceX;
+var source;
 
 
  window.onload = function (){
@@ -101,6 +102,29 @@ var spaceX;
 				}
 			}
 		}
+        var clock = document.getElementById('timer');
+        let time;
+        (function () {
+            var sec = 0;
+            var min = 0;
+            var hr = 0;
+            time = setInterval( () => {
+                var s = sec < 10 ? '0' + sec : sec;
+                var m = m < 10 ? '0' + min + ':': min + ':';
+                var h = h < 10 ? '0' + hr + ':' : hr + ':'; 
+                clock.innerHTML = h + m + s;
+                sec++;
+                if (sec == 60) {
+                    min++;
+                    sec = 0;
+                }
+                if (min == 60) {
+                    hr++;
+                    min = 0;
+                    sec = 0;
+                }
+            }, 1000)
+        })()
 	};
 
 };
@@ -160,6 +184,8 @@ function win() //notifies user that they have won
         var body = document.getElementsByTagName('body');
         body[0].style.backgroundImage= "url('./pikachu-mario.png')";
         notify = 10; //initializes notify variable
+        clearInterval(time);
+        time = null;
         timer= setTimeout(Notify, 200);
         var para=document.getElementsByClassName('explanation');
         para[0].style.visibility="hidden"; //hides text when user is being notified
@@ -277,4 +303,28 @@ function swap (position) //moves the puzzle piece by switching position with an 
         temp = gamePiece[position].style.left;
         gamePiece[position].style.left = spaceX;
         spaceX = temp;
+    }
+
+function changePic(btn)
+    {
+     var id = btn.id;
+     if (id == "mario") {
+        for(let i = 0; i < 15; i++){
+            gamePiece[i].style.backgroundImage = "url(./racoon-mario.png)";
+        }
+        return;
+     }
+     if (id == "wario") {
+        for(let i = 0; i < 15; i++){
+            gamePiece[i].style.backgroundImage = "url(./wario.png)";
+        }
+        return;
+     }
+     if(id == "yoshi") {
+        for(let i = 0; i < 15; i++){
+            gamePiece[i].style.backgroundImage = "url(./yoshi-mario.png)";
+        }
+         return;
+     }
+     return;
     }
