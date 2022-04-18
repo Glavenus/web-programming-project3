@@ -11,6 +11,7 @@ var timer;
 var spaceY;
 var spaceX;
 var source;
+var time;
 
 
  window.onload = function (){
@@ -103,7 +104,6 @@ var source;
 			}
 		}
         var clock = document.getElementById('timer');
-        let time;
         (function () {
             var sec = 0;
             var min = 0;
@@ -184,8 +184,9 @@ function win() //notifies user that they have won
         var body = document.getElementsByTagName('body');
         body[0].style.backgroundImage= "url('./pikachu-mario.png')";
         notify = 10; //initializes notify variable
+        if (time != null){
         clearInterval(time);
-        time = null;
+        time = null;}
         timer= setTimeout(Notify, 200);
         var para=document.getElementsByClassName('explanation');
         para[0].style.visibility="hidden"; //hides text when user is being notified
