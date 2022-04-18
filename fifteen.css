@@ -51,3 +51,53 @@
     height: 400px;
     width: 400px;
 }
+.winner {
+    visibility: hidden;
+    position: absolute;
+    border-style: solid;
+    border-color: black;
+    width: 90%;
+    height: 50%;
+    color: black;
+    text-align: center;
+    z-index: 1;
+    margin: 0 auto;
+    border-radius: 25px;
+    top: 100px;
+    left: 0;
+    right: 0;
+    background: url('./pikachu-mario.png');
+
+
+}
+
+.result {
+    border: black;
+    border-style: solid;
+    border-radius: 20px;
+    background-color: white;
+    position: relative;
+    margin: auto;
+    width: 50%;
+    height: 100px;
+}
+
+
+.loser {
+    visibility: hidden;
+    position: absolute;
+    border-style: solid;
+    border-color: black;
+    width: 90%;
+    height: 50%;
+    color: black;
+    text-align: center;
+    z-index: 1;
+    margin: 0 auto;
+    border-radius: 25px;
+    top: 100px;
+    left: 0;
+    right: 0;
+    background: url('./gameover.jpeg');
+
+}

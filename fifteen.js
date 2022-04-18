@@ -13,6 +13,8 @@ var spaceX;
 var source;
 var time;
 var clock;
+var finishedTime;
+var timeStart;
 
  window.onload = function (){
 
@@ -65,6 +67,8 @@ var clock;
 	spaceY = '300px';
 	shuffle.onclick = function() //activates whenever the shuffle button is clicked
 	{
+        const startTime = new Date();
+        timeStart = startTime.getTime();
 		for (var i=0; i<300; i++) 
 		{
 			var rand = parseInt(Math.random()* 100) %4; //generates a random number for shuffling each piece
@@ -118,7 +122,8 @@ var clock;
                     min++;
                     sec = 0;
                 }
-                if (min == 60) {
+                if (min == 6) {
+                    lost();
                     hr++;
                     min = 0;
                     sec = 0;
@@ -163,16 +168,12 @@ function Notify() //notifies the user
         {
             var body = document.getElementsByTagName('body'); //retrieves body element in html
             body[0].style.backgroundImage= "none"; //reverts to original page background
-            alert('Winner! ... Shuffle and Play Again'); //tells the user that they have won the game 
+            alert('Shuffle and Play Again'); //tells the user that they have won the game
+            window.location.reload(); 
             var para=document.getElementsByClassName('explanation');
             para[0].style.visibility="visible"; //reverts visiblity to its original state
+             
             return;
-        }
-        else  (notify % 2) 
-        {
-            var body = document.getElementsByTagName('body'); 
-            body[0].style.backgroundImage= "url('./pikachu-mario.png')";
-            //sets background pic to show user that they had completed the puzzle	
         }
         timer= setTimeout(Notify, 200); //notifies the user for 2 secs
     }
@@ -181,9 +182,17 @@ function Notify() //notifies the user
 
 function win() //notifies user that they have won
     {
-        var body = document.getElementsByTagName('body');
-        body[0].style.backgroundImage= "url('./pikachu-mario.png')";
-        notify = 10; //initializes notify variable
+        const endTime = new Date();
+        finishedTime = endTime.getTime() - timeStart;
+        var won = document.getElementsByClassName("winner");
+        if(won){
+            for(var i = 0; i < won.length; i++){
+                won[i].style.visibility = "visible";
+            }
+        }
+        document.getElementById("displayTime").innerHTML = "Your time was: " + finishedTime / 1000 + " seconds!";
+
+        notify = 50; //initializes notify variable
         if (time != null) {
         clearInterval(time);
         time = null;
@@ -192,6 +201,21 @@ function win() //notifies user that they have won
         timer= setTimeout(Notify, 200);
         var para=document.getElementsByClassName('explanation');
         para[0].style.visibility="hidden"; //hides text when user is being notified
+    }
+
+function lost()
+    {
+        var lost = document.getElementsByClassName("loser");
+        if(lost){
+            for(var i = 0; i < lost.length; i++){
+                lost[i].style.visibility = "visible";
+            }
+        }
+        notify = 50;
+        timer= setTimeout(Notify, 200);
+        var para=document.getElementsByClassName('explanation');
+        para[0].style.visibility="hidden"; //hides text when user is being notified
+    
     }
 
 
