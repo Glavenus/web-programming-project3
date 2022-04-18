@@ -11,22 +11,10 @@
 </head>
 
 <body>
-    <div class="winner">
-        <br><br><br><br><br><br>
-        <div class="result">
-            <H1>Congrats you won!</H1>
-            <span id="displayTime">Time</span>
-        </div>
-    </div>
-    <div class="loser">
-        <br><br><br><br><br><br>
-        <div class="result">
-            <H1>You ran out of time and lost!</H1>
-            
-        </div>
-    </div>
-    <h1 class="center">Fifteen Puzzle</h1>
-    <p class="center">The goal of the fifteen puzzle is to un-jumble its fifteen squares by repeatedly making moves that slide squares into the empty space. How quickly can you solve it?</p>
+    
+    <h1 class="center" id="header"></h1>
+    <p class="center" id="openingtext"></p>
+
     <br>
     <div id="container">
         <div id="options">
@@ -52,7 +40,7 @@
             <div>14</div>
             <div>15</div>
         </div>
-        <div id="controls">
+        <div id="menus">
             <p id="timer"></p>
 			<button id="shufflebutton">Shuffle</button>
             <br>
@@ -63,10 +51,8 @@
     </div>
 
     <br>
-    <p class="center">American puzzle author and mathematician Sam Loyd is often falsely credited with creating the puzzle; indeed, 
-        Loyd claimed from 1891 until his death in 1911 that he invented it. The puzzle was actually created around 1874 by Noyes Palmer Chapman, a postmaster in Canastota, New York.
-    </p>
-
+    <p id="bottomtext"></p>
+    <br>
 
     <div id="w3c">
         <a href="//validator.w3.org/check/referer"><img src="w3c-xhtml.png" /></a>
