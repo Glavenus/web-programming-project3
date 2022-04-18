@@ -11,6 +11,9 @@ var spaceX;
 var source;
 var time;
 var clock;
+var finishedTime;
+var timeStart;
+var gameTime = 6;
 
  window.onload = function (){
 
@@ -98,6 +101,8 @@ var clock;
     // assigning onclick behavior
 	shuffle.onclick = function() 
 	{
+        const startTime = new Date();
+        timeStart = startTime.getTime();
         // for-loop to move pieces 300 times
 		for (var i=0; i<300; i++) 
 		{
@@ -171,10 +176,12 @@ var clock;
                     min++;
                     sec = 0;
                 }
-                if (min == 60) {
+                if (min == gameTime) {
+                    lost();
+                /*if (min == 60) {
                     hr++;
                     min = 0;
-                    sec = 0;
+                    sec = 0;*/
                 }
             }, 1000)
         })()
@@ -220,9 +227,10 @@ function Notify()
         {
             // body element stored in body variable, background image is changed back to nothing
             var body = document.getElementsByTagName('body'); 
-            body[0].style.backgroundImage= "none"; 
+            body[0].style.backgroundImage= "none";
             // alert method called with message
-            alert('Winner! ... Shuffle and Play Again'); 
+            alert('Shuffle and Play Again'); 
+            window.location.reload();
             return;
         }
         // timer variable with setTimeout method called to stop method after set time
@@ -234,11 +242,21 @@ function Notify()
 
 function win() 
     {
+        const endTime = new Date();
+        finishedTime = endTime.getTime() - timeStart;
+        //var won = document.getElementsById("winner");
+        //won.style.visibility = "visible";
+        var won = document.getElementsByClassName("winner");
+        if(won){
+            for(var i = 0; i < won.length; i++){
+                won[i].style.visibility = "visible";
+            }
+        }
+        document.getElementById("displayTime").innerHTML = "Your time was: " + finishedTime / 1000 + " seconds!";
         // background image is assigned
-        var body = document.getElementsByTagName('body');
-        body[0].style.backgroundImage= "url('./pikachu-mario.png')";
+       
         //notify variable is assigned to 10 
-        notify = 10; 
+        notify = 50; 
         // if condition to check is time interval is running
         if (time != null) {
             //reset interval
@@ -252,6 +270,18 @@ function win()
         timer= setTimeout(Notify, 200);
     }
 
+function lost()
+    {
+        var lost = document.getElementsByClassName("loser");
+        if(lost){
+            for(var i = 0; i < lost.length; i++){
+                lost[i].style.visibility = "visible";
+            }
+        }
+        notify = 50;
+        timer= setTimeout(Notify, 200);
+        
+    }
 
 // finish method to check if game is finished
 
@@ -408,6 +438,32 @@ function changePic(btn)
             gameTile[i].style.backgroundImage = "url(./yoshi-mario.png)";
         }
          return;
+     }
+     return;
+    }
+function changeTime(btn)
+    {
+     var id = btn.id;
+     if (id == "4min") {
+        gameTime = 4;
+        document.getElementById("4min").style.background = "darkgrey";
+        document.getElementById("6min").style.background = "white";
+        document.getElementById("10min").style.background = "white";
+        return;
+     }
+     if (id == "6min") {
+        gameTime = 6;
+        document.getElementById("6min").style.background = "darkgrey";
+        document.getElementById("4min").style.background = "white";
+        document.getElementById("10min").style.background = "white";
+        return;
+     }
+     if(id == "10min") {
+        gameTime = 10;
+        document.getElementById("10min").style.background = "darkgrey";
+        document.getElementById("4min").style.background = "white";
+        document.getElementById("6min").style.background = "white";
+        return;
      }
      return;
     }

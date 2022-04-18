@@ -11,10 +11,22 @@
 </head>
 
 <body>
-    
+    <div class="winner">
+        <br><br><br><br><br><br>
+        <div class="result">
+            <h1>Congrats you won!</h1>
+            <span id="displayTime">Time</span>
+        </div>
+    </div>
+    <div class = "loser">
+        <br><br><br><br><br><br>
+        <div class="result">
+            <h1>You ran out of time and lost!</h1>
+
+        </div>
+    </div>
     <h1 class="center" id="header"></h1>
     <p class="center" id="openingtext"></p>
-
     <br>
     <div id="container">
         <div id="options">
@@ -22,9 +34,9 @@
             <button class="opt-btn" onclick="changePic(this)" id="mario">Mario</button>
             <button class="opt-btn" onclick="changePic(this)" id="yoshi">Yoshi</button>
             <button class="opt-btn" onclick="changePic(this)" id="wario">Wario</button>
-	    <button class="time-btn" onclick="changeTime(this)" id="4min">4 minutes</button>
-            <button class="time-btn" onclick="changeTime(this)" id="6min">6 minutes</button>
-            <button class="time-btn" onclick="changeTime(this)" id="10min">10 minutes</button>
+            <button class="time-btn" onclick="changeTime(this)" id="4min">4 Minutes</button>
+            <button class="time-btn" onclick="changeTime(this)" id="6min">6 Minutes</button>
+            <button class="time-btn" onclick="changeTime(this)" id="10min">10 Minutes</button>
         </div>
         <div id="gameSpace">
             <div>1</div>  
