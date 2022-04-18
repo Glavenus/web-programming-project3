@@ -12,7 +12,7 @@ var spaceY;
 var spaceX;
 var source;
 var time;
-
+var clock;
 
  window.onload = function (){
 
@@ -103,15 +103,15 @@ var time;
 				}
 			}
 		}
-        var clock = document.getElementById('timer');
+        clock = document.getElementById('timer');
         (function () {
             var sec = 0;
             var min = 0;
             var hr = 0;
             time = setInterval( () => {
                 var s = sec < 10 ? '0' + sec : sec;
-                var m = m < 10 ? '0' + min + ':': min + ':';
-                var h = h < 10 ? '0' + hr + ':' : hr + ':'; 
+                var m = m < 10 ? '0' + min + ': ': min + ': ';
+                var h = h < 10 ? '0' + hr + ': ' : hr + ': '; 
                 clock.innerHTML = h + m + s;
                 sec++;
                 if (sec == 60) {
@@ -184,9 +184,11 @@ function win() //notifies user that they have won
         var body = document.getElementsByTagName('body');
         body[0].style.backgroundImage= "url('./pikachu-mario.png')";
         notify = 10; //initializes notify variable
-        if (time != null){
+        if (time != null) {
         clearInterval(time);
-        time = null;}
+        time = null;
+        clock.innerHTML = '00 : ' + '00 : '+ '00';
+        }
         timer= setTimeout(Notify, 200);
         var para=document.getElementsByClassName('explanation');
         para[0].style.visibility="hidden"; //hides text when user is being notified
